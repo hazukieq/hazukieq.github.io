@@ -11672,14 +11672,11 @@ figure.highlight .section {
 }
 .widget,
 .footer,
-.navbar,
-.article,
-.helper {
+.navbar {
   background-color: rgba(225,225,225,0.7);
 }
-.article .content a img {
-  margin: auto;
-  display: block;
+.article {
+  background-color: #fff;
 }
 body {
   counter-reset: card;
