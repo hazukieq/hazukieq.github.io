@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+		*{
+			box-sizing: border-box;
+		}
+		body{
+			font-family: verdana,sans-serif;
+		}
+		
+		.mySlides{
+			display: none;
+		}
+		.slideshow-container{
+			max-width: 600px;
+			position: relative;
+			margin: auto;
+		}
+		.prev,.next{
+			cursor: pointer;
+			position: absolute;
+			top: 50%;
+			width: auto;
+			margin-top: -22px;
+			padding: 16px;
+			color: #1e90ff;
+			font-weight: bold;
+			font-size: 18px;
+			transition: 0.6s ease;
+			border-radius: 0 3px 3px 0;
+		}
+		
+		.next{
+			right: 0;
+			border-radius: 3px 0 0 3px;
+		}
+		
+		.prev:hover,.next:hover{
+			background-color: rgba(0,0,0,0.8);
+		}
+		.text{
+			color: #1e90ff;
+			font-size: 15px;
+			padding: 8px 12px;
+			position: absolute;
+			bottom: 8px;
+			width: 100%;
+			text-align: center;
+		}
+		.numbertext{
+			color: deepskyblue;
+			font-size: 12px;
+			padding: 8px 12px;
+			position: absolute;
+			top: 0;
+		}
+		.dot{
+			cursor: pointer;
+			height: 13px;
+			width: 13px;
+			margin: 0 2px;
+			background-color: #bbb;
+			border-radius: 50%;
+			display: inline-block;
+			transition: background-color 0.6s ease;
+
+		}
+		.active,.dot:hover{
+			background-color: #717171;
+		}
+		.fade{
+			-webkit-animation-name: fade;
+			-webkit-animation-duration: 1.5s;
+			animation-name: fade;
+			animation-duration: 1.5s;
+		}
+		@-webkit-@-ms-keyframes fade{
+			from{opacity: .4;}
+			to{opacity: 1;}
+		}
+		@keyframes fade{
+			from{opacity: .4;}
+			to{opacity: 1;}
+		}
+		</style>
+		
+	</head>
+	<body>
+			<div class="slideshow-container">
+                <div class="mySlides fade">
+					<div class="numbertext">1/3</div>
+					<div style="text-align: center;">
+				<img src="../imgs/gajen.jpg" style="width: 50%;"/></div>
+				<br/>
+				<br/>
+				<br/>
+				<div class="text">嘉然，你好赛克西哦~</div>
+				</div>
+				
+				<div class="mySlides fade">
+					<div class="numbertext">2/3</div>
+					<div style="text-align: center;"><img src="../imgs/gajen2.jpg" style="width: 50%;"/></div>
+					<br/>
+					<br/>
+					<br/>
+					<div class="text">嘉然小姐真可爱捏</div>
+				</div>
+				<div class="mySlides fade">
+					<div class="numbertext">3/3</div>
+					<div style="text-align: center;"><img src="../imgs/gajen3.png" style="width: 50%;"/></div>
+					<br/>
+					<br/>
+					<br/>
+					<div class="text"> 嘉然,我好喜欢你呀</div>
+					</div>
+					
+					<a class="prev" onclick="plusSlides(-1)">«</a>
+					<a class="next" onclick="plusSlides(1)">»</a>
+						</div>
+					<br/>
+					
+					<div style="text-align: center;">
+						<span class="dot" onclick="currentSlide(1)"></span>
+						<span class="dot" onclick="currentSlide(2)"></span>
+						<span class="dot" onclick="currentSlide(3)"></span>
+					</div>
+		
+	</body>
+	<footer>
+		<script>
+		var index=-1;
+		autoShow();
+		function autoShow(){
+		    index++;
+			showSlide();
+			setTimeout(autoShow,6000);
+		}
+		
+		function plusSlides(){
+			index++;
+			showSlide();
+		}
+		
+		function minusSlides(){
+			index--;
+			showSlide();
+		}
+		
+		function currentSlide(n){
+			index=n-1;
+			showSlide();
+		}
+		
+		
+		function showSlide(){
+			var slides=document.getElementsByClassName("mySlides");
+			var dots=document.getElementsByClassName("dot");
+			if(index==slides.length) index=0;
+			if(index>slides.length) index=1;
+			if(index<0) index=2;
+			
+			for(let i=0;i<slides.length;i++){
+				 slides[i].style.display = "none"; 
+			}
+			for(let j=0;j<dots.length;j++){
+				dots[j].className=dots[j].className.replace(" active","");
+			}
+			
+			slides[index].style.display="block";
+			dots[index].className +=" active";
+		}
+		</script>
+	</footer>
+</html>
